@@ -1,0 +1,80 @@
+{{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Bunnies</title>
+    <style>
+        /* Navigation Bar Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar-wrapper {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure the navbar is on top of other content */
+        }
+
+        .navbar {
+            background-color: rgba(255, 198, 226, 0.65);
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-links li {
+            margin-right: 20px;
+        }
+
+        .navbar-links li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navbar-links li a:hover {
+            color: #ffa1c8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">Time Bunnies</a>
+            <ul class="navbar-links">
+                <li>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
+                    {% else %}
+                    <a href="{% url 'common:login' %}">로그인</a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'common:signup' %}">회원가입</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Noto Sans KR", sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: url("https://images.unsplash.com/photo-1600794549945-33ba5e25097d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center;
+    background-size: cover;
+    padding: 10px;
+}
+
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: hwb(0 100% 0% / 0.789);
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2 {
+    color: hsl(334, 27%, 34%);
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img {
+    width: 30px;
+    height: 32px;
+    margin-left: 9px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #c6c6c6d8;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: hsl(0, 44%, 59%);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 17px 8px; /* 위아래 패딩을 늘려줍니다. */
+    line-height: 30px; /* 텍스트의 위아래 간격을 조절합니다. */
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    padding-left: 50px;
+    border: 2px solid #ccc;
+    border-radius: 40px;
+    margin-bottom: 7px;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAPdJREFUaEPtmUsKAjEQRN/cRRD0Oh7HpeBlvI6Cp1FczEaGoZ+G+VFZF6nuV+ksko6Vr27l9ZMG5k4wCSw5gRNwAfYzF/kEzsBtqI6xI3QHDjMX39s/gKNt4LWQ4vsyBmGPJbC5Bqa+sb4B/p1AGpAzlQRKBCRVIy/5m1soM2DwA0mgREBSNfKSf2bAIJXaJFAiIKkaeck/M2CQSm0SKBGQVI285J8ZMEilNgmUCEiqRl7yzwwYpFKbBEoEJFUjL/lnBgxSqU0Cm3vclSeguVw/7q7+g+PzxXQFds1Zug1//mJyNjOpp37vbN5mGmiOVG6YBCSw5vI32I1GMU4Yd58AAAAASUVORK5CYII=");
+    background-position: center;
+    background-size: cover;
+    top: 50%; 
+    transform: translateY(-50%); 
+    left: 8px;
+}
+
+ul li.checked {
+    text-decoration: line-through;
+    color: hsl(0, 1%, 37%);
+}
+
+ul li.checked::before {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAldJREFUaEPtmb9rVTEUxz8dOggdWkRpi7qrg4IdhFrQ0cV2KohYQQXpokOH1qGgIO3Q3UFEHRwcS/8Bi6hQihZB/Af8hYjFTaSUNgfue4Tb3HvP476b5EGyvOEmOd9PzsnJyUsfPd76elw/CSC0B5MHYvfAMPAUOA8c9iz2D/AOuA38LrJdFkIifguQ35DtK3AW2HaJKAN4CVwLqdyy/QS40ynAD2AkEgDxwolOAfZyA3xnLJX9MlGqCRr0kMp+AkgeKF6BFEKqFagRQoPA35LxKvuhNrGcrG+Ae8DzAohoAeRw/GAdko9NmXAX2M2BRAlwCHif1Ta23kvAeuwAEq6rwJWc0AfAQ0cYReeBZWAhJ3TNVLyTMeyBi44QsHVJVSvVrd0+AheAf6EBVoC57OLxzCFmHHgN9Fvf5IJyxpTIP0On0fvAUiZCYlZuTzbEceATMGQJ/Q9MAJsVZ0jje+Ak8MUh4lYGMQBsAKdyfa4CrxQHYOMAomEWkDxuNzF808BNG4DLuW+PTL5fVIiXLl4AxNAM8MKkwqoLj2ScKYewIh5vABoICbWxkozjgvAKUAYhGeccIPfaTpp3ABfEDiBptCrjROGBlgh7T1x3HGBaLwTxgA1x2sT8vFato19QgBq620MTgGoFurHUBXOo7Ie6Umq4E8B3YFSzVB76iJZjLjtlIST1zQ0P4jQmpESXKvdAKwM4Anw21eZRjYUG+3zL/gSQF5uOAKSzhFDricm+lDSotz21CH6bPWz8KjJYVQL7EFrLRgKotXxdGJw80IVFrDVFz3tgH9NOgDEoiNevAAAAAElFTkSuQmCC");
+}
+
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 11.5px;
+    width: 40px;
+    height: 40px;
+    right: 18px;
+    font-size: 22px;
+    color: #888;
+    line-height: 40px;
+    text-align: center;
+
+}
+
+ul li span:hover {
+    background: hsl(220, 45%, 83%);
+    border-radius: 40px;
+}

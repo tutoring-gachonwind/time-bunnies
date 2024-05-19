@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TIME BUNNY LOGIN</title>
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+    <script src="{% static 'jquery-3.4.1.js' %}"></script>
+</head>
+<body>
+    <section class="login-form">
+        <h1>TIME BUNNY</h1>
+        <form method="post" action="{% url 'common:login' %}">
+            {% csrf_token %}
+            {% include "form_errors.html" %}
+            <div class="int-area">
+                <input type="text" name="username" id="username" autocomplete="off" required
+                       value="{{ form.username.value|default_if_none:'' }}">
+                <label for="username">USER NAME</label>
+            </div>
+            <div class="int-area">
+                <input type="password" name="password" id="password" autocomplete="off" required
+                       value="{{ form.password.value|default_if_none:'' }}">
+                <label for="password">PASSWORD</label>
+            </div>
+            <div class="btn-area">
+                <button id="btn" type="submit">LOGIN</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

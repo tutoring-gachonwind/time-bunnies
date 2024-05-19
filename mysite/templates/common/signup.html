@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIME BUNNY SIGN UP</title>
+    <link rel="stylesheet" href="{% static 'stylee.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <form method="post" action="{% url 'common:signup' %}">
+        {% csrf_token %}
+        <h1>SIGN UP</h1>
+
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" placeholder="사용자 이름" name="username" required
+                       value="{{ form.username.value|default_if_none:'' }}">
+                <i class="bx bx-user-circle"></i>
+            </div>
+            {% if form.username.errors %}
+                <div class="form-errors">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-box">
+            <div class="input-field">
+                <input type="email" placeholder="Email" name="email" required
+                       value="{{ form.email.value|default_if_none:'' }}">
+                <i class="bx bx-envelope"></i>
+            </div>
+            {% if form.email.errors %}
+                <div class="form-errors">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-box">
+            <div class="input-field">
+                <input type="password" placeholder="비밀번호" name="password1" required
+                       value="{{ form.password1.value|default_if_none:'' }}">
+                <i class="bx bx-lock"></i>
+            </div>
+            {% if form.password1.errors %}
+                <div class="form-errors">
+                    {{ form.password1.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-box">
+            <div class="input-field">
+                <input type="password" placeholder="비밀번호 확인" name="password2" required
+                       value="{{ form.password2.value|default_if_none:'' }}">
+                <i class="bx bx-lock"></i>
+            </div>
+            {% if form.password2.errors %}
+                <div class="form-errors">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn">생성하기</button>
+    </form>
+</div>
+
+</body>
+</html>
