@@ -20,7 +20,7 @@ body {
 .noto-sans-kr {
     font-family: "Noto Sans KR", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400; /* 폰트의 실제 두께 값으로 수정하세요. */
+    font-weight: 400; 
     font-style: normal;
 }
 

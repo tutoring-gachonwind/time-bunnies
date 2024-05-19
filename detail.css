@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;    
+        background: url("https://images.unsplash.com/photo-1600794549945-33ba5e25097d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center;
+        background-size: cover;
+    }
